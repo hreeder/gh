@@ -14,6 +14,7 @@ jobs:
       uses: docker://golang:1.13
       with:
         args: go test ./...
+
   # TODO: https://github.com/dominikh/go-tools
   staticanalysis:
     name: Static Analysis
@@ -25,3 +26,13 @@ jobs:
       uses: docker://golang:1.13
       with:
         args: go vet ./...
+
+  security:
+    name: Security Analysis
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run gosec
+      uses: docker://securego/gosec:v2.1.0
+      with:
+        args: ./...
