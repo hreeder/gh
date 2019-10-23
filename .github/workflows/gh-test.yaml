@@ -4,8 +4,8 @@ name: Test
 on: [push]
 
 jobs:
-  test:
-    name: Test
+  unittest:
+    name: Unit Test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -14,3 +14,14 @@ jobs:
       uses: docker://golang:1.13
       with:
         args: go test ./...
+  # TODO: https://github.com/dominikh/go-tools
+  staticanalysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run Go Vet
+      id: govet
+      uses: docker://golang:1.13
+      with:
+        args: go vet ./...
