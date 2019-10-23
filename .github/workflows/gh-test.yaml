@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Run Go Test
-      uses: docker://golang:1.13
       id: gotest
-      run: go test */***
+      uses: docker://golang:1.13
+      with:
+        args: go test */***
