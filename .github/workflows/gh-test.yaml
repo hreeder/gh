@@ -1,0 +1,14 @@
+---
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Go Test
+      uses: docker://golang:1.13
+      id: gotest
+      run: go test */***
