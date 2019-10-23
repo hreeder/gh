@@ -13,6 +13,4 @@ jobs:
       id: gotest
       uses: docker://golang:1.13
       with:
-        # args: go test */***
-        args: ls -l
-        # workdir: /github/workspace
+        args: go test */***
