@@ -8,10 +8,11 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
     - name: Run Go Test
       id: gotest
       uses: docker://golang:1.13
       with:
         # args: go test */***
         args: ls -l
-        workdir: /github/workspace
+        # workdir: /github/workspace
