@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// StepDefinition represents a step, within a workflow job
 type StepDefinition struct {
 	ID               string            `yaml:"id"`
 	If               string            `yaml:"if"`
@@ -19,6 +20,7 @@ type StepDefinition struct {
 	TimeoutMinutes   int               `yaml:"timeout-minutes"`
 }
 
+// Repository gets the ActionRepository for the step
 func (sd *StepDefinition) Repository() (ActionRepository, error) {
 	// Local paths
 	if strings.HasPrefix(sd.Uses, "./") {

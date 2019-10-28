@@ -2,8 +2,10 @@ package actions
 
 // Thanks to https://github.com/go-yaml/yaml/issues/100#issuecomment-324964723
 
+// StringArray is a type to hold a YAML value which can be a string or a slice of strings
 type StringArray []string
 
+// UnmarshalYAML loads the YAML into the native Go type
 func (a *StringArray) UnmarshalYAML(unmarshal func(interface{}) error) error {
 	var multi []string
 	err := unmarshal(&multi)

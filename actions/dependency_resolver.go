@@ -1,5 +1,6 @@
 package actions
 
+// ResolveDependencies returns all ActionRepositories within the given workflow
 func (wf *Workflow) ResolveDependencies() []*ActionRepository {
 	var resolved []*ActionRepository
 
