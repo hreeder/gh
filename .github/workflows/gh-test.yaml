@@ -24,7 +24,7 @@ jobs:
       id: golint
       uses: docker://cytopia/golint:latest
       with:
-        args: "."
+        args: ./...
 
   # TODO: https://github.com/dominikh/go-tools
   staticanalysis:
